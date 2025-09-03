@@ -11,7 +11,7 @@ class Pergunta(models.Model):
     usuario = models.CharField(max_length = 200, null = False, default = "anônimo")
 
     def __str__(self):
-        return "[" + str(self.id) + "]" + self.titulo
+        return "[" + str(self.id) + "] " + self.titulo
     
     def foi_publicado_recentemente(self):
         return self.data_criacao >= timezone.now() - datetime.timedelta(days = 1)
@@ -27,7 +27,7 @@ class Resposta(models.Model):
     usuario = models.CharField(max_length = 200, null = False, default = "anônimo")
 
     def __str__(self):
-        return "[" + str(self.id) + "]" + self.texto
+        return "[" + str(self.id) + "] " + self.texto
 
     def foi_publicado_recentemente(self):
         return self.data_criacao >= timezone.now() - datetime.timedelta(days = 1)
